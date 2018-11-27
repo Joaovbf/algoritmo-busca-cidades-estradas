@@ -30,13 +30,16 @@ typedef struct estrada {
 // Definir uma estrutura para cidade.
 typedef struct cidade {
 	char nome[64];
-	struct estrada conexoes[3];
+	int numeroDeConexoes;
+	struct estrada *conexoes;
 } tipo_Cidade;
 
 
 // ------------------------------------------------------------------------
 //	Prototipo das funcoes.
 // ------------------------------------------------------------------------
-tipo_Cidade* geraCidades();
+void geraCidades(int numeroDeCidades);
 void geraEstradas(tipo_Cidade *vetorCidades, int numeroDeCidades);
+void salvarArquivo(tipo_Cidade *vetorCidades, int numeroDeCidades);
+tipo_Cidade* lerArquivo(int numeroDeCidades);
 #endif
